@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
@@ -18,6 +19,9 @@ module.exports = {
           light: '#e6e6e6',
         },
         action: '#3B82F6',
+      },
+      transitionProperty: {
+        width: 'width',
       },
     },
   },
