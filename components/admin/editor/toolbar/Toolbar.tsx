@@ -63,37 +63,47 @@ const Toolbar: FC<Props> = ({ editor }) => {
       />
       <Separator />
       <div className="flex items-center space-x-3">
-        <Button>
+        <Button onClick={() => getFocusedEditor(editor).toggleBold().run()}>
           <AiOutlineBold />
         </Button>
-        <Button>
+        <Button onClick={() => getFocusedEditor(editor).toggleItalic().run()}>
           <AiOutlineItalic />
         </Button>
-        <Button>
+        <Button
+          onClick={() => getFocusedEditor(editor).toggleUnderline().run()}
+        >
           <AiOutlineUnderline />
         </Button>
-        <Button>
+        <Button onClick={() => getFocusedEditor(editor).toggleStrike().run()}>
           <AiOutlineStrikethrough />
         </Button>
       </div>
       <Separator />
       <div className="flex items-center space-x-3">
-        <Button>
+        <Button
+          onClick={() => getFocusedEditor(editor).toggleBlockquote().run()}
+        >
           <RiDoubleQuotesL />
         </Button>
-        <Button>
+        <Button onClick={() => getFocusedEditor(editor).toggleCode().run()}>
           <IoCodeOutline />
         </Button>
-        <Button>
+        <Button
+          onClick={() => getFocusedEditor(editor).toggleCodeBlock().run()}
+        >
           <BsBraces />
         </Button>
         <Button>
           <IoLinkOutline />
         </Button>
-        <Button>
+        <Button
+          onClick={() => getFocusedEditor(editor).toggleOrderedList().run()}
+        >
           <AiOutlineOrderedList />
         </Button>
-        <Button>
+        <Button
+          onClick={() => getFocusedEditor(editor).toggleBulletList().run()}
+        >
           <AiOutlineUnorderedList />
         </Button>
       </div>
