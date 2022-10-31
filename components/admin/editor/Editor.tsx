@@ -8,7 +8,7 @@ interface Props {}
 const Editor: FC<Props> = ({}) => {
   const editor = useEditor({ extensions: [StarterKit] });
   return (
-    <div>
+    <div className="p-3 dark:bg-primary-dark bg-primary transition">
       <Toolbar editor={editor} />
       <EditorContent editor={editor} />
     </div>

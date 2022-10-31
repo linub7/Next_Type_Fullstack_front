@@ -1,8 +1,27 @@
 import { FC } from 'react';
 import { Editor } from '@tiptap/react';
+import {
+  AiOutlineBold,
+  AiOutlineStrikethrough,
+  AiOutlineOrderedList,
+  AiOutlineUnorderedList,
+  AiOutlineItalic,
+  AiOutlineUnderline,
+} from 'react-icons/ai';
+import { BsBraces } from 'react-icons/bs';
+import { RiDoubleQuotesL } from 'react-icons/ri';
+import {
+  IoCodeOutline,
+  IoImageOutline,
+  IoLinkOutline,
+  IoLogoYoutube,
+} from 'react-icons/io5';
+
 import DropdownOptions from './dropdown/DropdownOptions';
 import DropdownHead from './dropdown/DropdownHead';
 import { getFocusedEditor } from '../../../../utils/editorUtils';
+import Button from './dropdown/Button';
+import Separator from './Separator';
 
 interface Props {
   editor: Editor | null;
@@ -37,11 +56,57 @@ const Toolbar: FC<Props> = ({ editor }) => {
     return 'Paragraph';
   };
   return (
-    <div>
+    <div className="flex items-center">
       <DropdownOptions
         options={paragraphOptions}
         head={<DropdownHead title="Paragraph" getLabel={getLabel()} />}
       />
+      <Separator />
+      <div className="flex items-center space-x-3">
+        <Button>
+          <AiOutlineBold />
+        </Button>
+        <Button>
+          <AiOutlineItalic />
+        </Button>
+        <Button>
+          <AiOutlineUnderline />
+        </Button>
+        <Button>
+          <AiOutlineStrikethrough />
+        </Button>
+      </div>
+      <Separator />
+      <div className="flex items-center space-x-3">
+        <Button>
+          <RiDoubleQuotesL />
+        </Button>
+        <Button>
+          <IoCodeOutline />
+        </Button>
+        <Button>
+          <BsBraces />
+        </Button>
+        <Button>
+          <IoLinkOutline />
+        </Button>
+        <Button>
+          <AiOutlineOrderedList />
+        </Button>
+        <Button>
+          <AiOutlineUnorderedList />
+        </Button>
+      </div>
+      <Separator />
+
+      <div className="flex items-center space-x-3">
+        <Button>
+          <IoLogoYoutube />
+        </Button>
+        <Button>
+          <IoImageOutline />
+        </Button>
+      </div>
     </div>
   );
 };
