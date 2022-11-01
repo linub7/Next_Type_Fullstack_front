@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-hook/window-size": "^3.1.1",
+    "@tiptap/extension-placeholder": "^2.0.0-beta.199",
     "@tiptap/extension-underline": "^2.0.0-beta.199",
     "@tiptap/react": "^2.0.0-beta.199",
     "@tiptap/starter-kit": "^2.0.0-beta.199",
@@ -20,6 +21,7 @@
     "react-icons": "^4.6.0"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.7",
     "@types/node": "18.11.7",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",

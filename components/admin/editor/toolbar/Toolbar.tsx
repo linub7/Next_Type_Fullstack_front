@@ -21,7 +21,7 @@ import DropdownOptions from './dropdown/DropdownOptions';
 import DropdownHead from './dropdown/DropdownHead';
 import { getFocusedEditor } from '../../../../utils/editorUtils';
 import Button from './dropdown/Button';
-import Separator from './Separator';
+import Separator from './separator/VerticalSeparator';
 
 interface Props {
   editor: Editor | null;
@@ -63,32 +63,47 @@ const Toolbar: FC<Props> = ({ editor }) => {
       />
       <Separator />
       <div className="flex items-center space-x-3">
-        <Button onClick={() => getFocusedEditor(editor).toggleBold().run()}>
+        <Button
+          active={editor.isActive('bold')}
+          onClick={() => getFocusedEditor(editor).toggleBold().run()}
+        >
           <AiOutlineBold />
         </Button>
-        <Button onClick={() => getFocusedEditor(editor).toggleItalic().run()}>
+        <Button
+          active={editor.isActive('italic')}
+          onClick={() => getFocusedEditor(editor).toggleItalic().run()}
+        >
           <AiOutlineItalic />
         </Button>
         <Button
+          active={editor.isActive('underline')}
           onClick={() => getFocusedEditor(editor).toggleUnderline().run()}
         >
           <AiOutlineUnderline />
         </Button>
-        <Button onClick={() => getFocusedEditor(editor).toggleStrike().run()}>
+        <Button
+          active={editor.isActive('strike')}
+          onClick={() => getFocusedEditor(editor).toggleStrike().run()}
+        >
           <AiOutlineStrikethrough />
         </Button>
       </div>
       <Separator />
       <div className="flex items-center space-x-3">
         <Button
+          active={editor.isActive('blockquote')}
           onClick={() => getFocusedEditor(editor).toggleBlockquote().run()}
         >
           <RiDoubleQuotesL />
         </Button>
-        <Button onClick={() => getFocusedEditor(editor).toggleCode().run()}>
+        <Button
+          active={editor.isActive('code')}
+          onClick={() => getFocusedEditor(editor).toggleCode().run()}
+        >
           <IoCodeOutline />
         </Button>
         <Button
+          active={editor.isActive('codeBlock')}
           onClick={() => getFocusedEditor(editor).toggleCodeBlock().run()}
         >
           <BsBraces />
@@ -97,11 +112,13 @@ const Toolbar: FC<Props> = ({ editor }) => {
           <IoLinkOutline />
         </Button>
         <Button
+          active={editor.isActive('orderedList')}
           onClick={() => getFocusedEditor(editor).toggleOrderedList().run()}
         >
           <AiOutlineOrderedList />
         </Button>
         <Button
+          active={editor.isActive('bulletList')}
           onClick={() => getFocusedEditor(editor).toggleBulletList().run()}
         >
           <AiOutlineUnorderedList />
