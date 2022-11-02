@@ -19,6 +19,7 @@ import Button from './dropdown/Button';
 import Separator from './separator/VerticalSeparator';
 import InsertLink from './link/InsertLink';
 import { linkOption } from './link/LinkForm';
+import EmbedYoutube from './youtube/EmbedYoutube';
 
 interface Props {
   editor: Editor | null;
@@ -60,6 +61,10 @@ const Toolbar: FC<Props> = ({ editor }) => {
     } else {
       commands.setLink({ href: url });
     }
+  };
+
+  const handleEmbedYoutubeLink = (url: string) => {
+    editor.chain().focus().setYoutubeVideo({ src: url }).run();
   };
 
   return (
@@ -145,9 +150,7 @@ const Toolbar: FC<Props> = ({ editor }) => {
       <Separator />
 
       <div className="flex items-center space-x-3">
-        <Button>
-          <IoLogoYoutube />
-        </Button>
+        <EmbedYoutube onSubmit={handleEmbedYoutubeLink} />
 
         <Button>
           <IoImageOutline />

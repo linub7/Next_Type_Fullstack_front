@@ -4,6 +4,7 @@ import StarterKit from '@tiptap/starter-kit';
 import Underline from '@tiptap/extension-underline';
 import Placeholder from '@tiptap/extension-placeholder';
 import Link from '@tiptap/extension-link';
+import Youtube from '@tiptap/extension-youtube';
 
 import Toolbar from './toolbar/Toolbar';
 import HorizontalSeparator from './toolbar/separator/HorizontalSeparator';
@@ -27,6 +28,13 @@ const Editor: FC<Props> = ({}) => {
       }),
       Placeholder.configure({
         placeholder: 'Type Something...',
+      }),
+      Youtube.configure({
+        width: 840,
+        height: 472.5,
+        HTMLAttributes: {
+          class: 'mx-auto rounded',
+        },
       }),
     ],
     editorProps: {

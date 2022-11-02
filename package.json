@@ -13,6 +13,7 @@
     "@tiptap/extension-link": "^2.0.0-beta.199",
     "@tiptap/extension-placeholder": "^2.0.0-beta.199",
     "@tiptap/extension-underline": "^2.0.0-beta.199",
+    "@tiptap/extension-youtube": "^2.0.0-beta.199",
     "@tiptap/react": "^2.0.0-beta.199",
     "@tiptap/starter-kit": "^2.0.0-beta.199",
     "classnames": "^2.3.2",
