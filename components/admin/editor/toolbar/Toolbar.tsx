@@ -10,18 +10,15 @@ import {
 } from 'react-icons/ai';
 import { BsBraces } from 'react-icons/bs';
 import { RiDoubleQuotesL } from 'react-icons/ri';
-import {
-  IoCodeOutline,
-  IoImageOutline,
-  IoLinkOutline,
-  IoLogoYoutube,
-} from 'react-icons/io5';
+import { IoCodeOutline, IoImageOutline, IoLogoYoutube } from 'react-icons/io5';
 
 import DropdownOptions from './dropdown/DropdownOptions';
 import DropdownHead from './dropdown/DropdownHead';
 import { getFocusedEditor } from '../../../../utils/editorUtils';
 import Button from './dropdown/Button';
 import Separator from './separator/VerticalSeparator';
+import InsertLink from './link/InsertLink';
+import { linkOption } from './link/LinkForm';
 
 interface Props {
   editor: Editor | null;
@@ -55,13 +52,25 @@ const Toolbar: FC<Props> = ({ editor }) => {
     if (editor.isActive('heading', { level: 3 })) return 'Heading 3';
     return 'Paragraph';
   };
+
+  const handleSubmitLink = ({ url, openInNewTab }: linkOption) => {
+    const { commands } = editor;
+    if (openInNewTab) {
+      commands.setLink({ href: url, target: '_blank' });
+    } else {
+      commands.setLink({ href: url });
+    }
+  };
+
   return (
     <div className="flex items-center">
       <DropdownOptions
         options={paragraphOptions}
         head={<DropdownHead title="Paragraph" getLabel={getLabel()} />}
       />
+
       <Separator />
+
       <div className="flex items-center space-x-3">
         <Button
           active={editor.isActive('bold')}
@@ -69,18 +78,21 @@ const Toolbar: FC<Props> = ({ editor }) => {
         >
           <AiOutlineBold />
         </Button>
+
         <Button
           active={editor.isActive('italic')}
           onClick={() => getFocusedEditor(editor).toggleItalic().run()}
         >
           <AiOutlineItalic />
         </Button>
+
         <Button
           active={editor.isActive('underline')}
           onClick={() => getFocusedEditor(editor).toggleUnderline().run()}
         >
           <AiOutlineUnderline />
         </Button>
+
         <Button
           active={editor.isActive('strike')}
           onClick={() => getFocusedEditor(editor).toggleStrike().run()}
@@ -88,7 +100,9 @@ const Toolbar: FC<Props> = ({ editor }) => {
           <AiOutlineStrikethrough />
         </Button>
       </div>
+
       <Separator />
+
       <div className="flex items-center space-x-3">
         <Button
           active={editor.isActive('blockquote')}
@@ -96,27 +110,30 @@ const Toolbar: FC<Props> = ({ editor }) => {
         >
           <RiDoubleQuotesL />
         </Button>
+
         <Button
           active={editor.isActive('code')}
           onClick={() => getFocusedEditor(editor).toggleCode().run()}
         >
           <IoCodeOutline />
         </Button>
+
         <Button
           active={editor.isActive('codeBlock')}
           onClick={() => getFocusedEditor(editor).toggleCodeBlock().run()}
         >
           <BsBraces />
         </Button>
-        <Button>
-          <IoLinkOutline />
-        </Button>
+
+        <InsertLink onSubmit={handleSubmitLink} />
+
         <Button
           active={editor.isActive('orderedList')}
           onClick={() => getFocusedEditor(editor).toggleOrderedList().run()}
         >
           <AiOutlineOrderedList />
         </Button>
+
         <Button
           active={editor.isActive('bulletList')}
           onClick={() => getFocusedEditor(editor).toggleBulletList().run()}
@@ -124,12 +141,14 @@ const Toolbar: FC<Props> = ({ editor }) => {
           <AiOutlineUnorderedList />
         </Button>
       </div>
+
       <Separator />
 
       <div className="flex items-center space-x-3">
         <Button>
           <IoLogoYoutube />
         </Button>
+
         <Button>
           <IoImageOutline />
         </Button>

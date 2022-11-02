@@ -315,6 +315,15 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-italic/-/extension-italic-2.0.0-beta.199.tgz#db24dbdd0d47fdfaa22dde8ba35e2c08b7162e82"
   integrity sha512-jaYJr5ZMxU2swK6h1XJr6Wb1LlWOWbvsX/wo59iZ9KVv1AHiKZlCMcWGThy4aoAs/CUT11pB8qbzyOO163LHZg==
 
+"@tiptap/extension-link@^2.0.0-beta.199":
+  version "2.0.0-beta.199"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-link/-/extension-link-2.0.0-beta.199.tgz#57865aa0211d7d9972ed5fee9a92fedbf0083b37"
+  integrity sha512-zwXDg+zsHhn2a4rJkFd/pND4zUfJ2RCgyrkBqAL+nimSiknaSsIw4NpnZTZFWze9i3NDcc2BNngDNovoEIEukg==
+  dependencies:
+    linkifyjs "^3.0.5"
+    prosemirror-model "^1.18.1"
+    prosemirror-state "^1.4.1"
+
 "@tiptap/extension-list-item@^2.0.0-beta.199":
   version "2.0.0-beta.199"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-list-item/-/extension-list-item-2.0.0-beta.199.tgz#2e667f0ea5d9314307427625345e915edf91b989"
@@ -1532,6 +1541,11 @@ lilconfig@^2.0.5, lilconfig@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.0.6.tgz#32a384558bd58af3d4c6e077dd1ad1d397bc69d4"
   integrity sha512-9JROoBW7pobfsx+Sq2JsASvCo6Pfo6WWoUW79HuB1BCoBXD4PLWJPqDF6fNj67pqBYTbAHkE57M1kS/+L1neOg==
+
+linkifyjs@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/linkifyjs/-/linkifyjs-3.0.5.tgz#99e51a3a0c0e232fcb63ebb89eea3ff923378f34"
+  integrity sha512-1Y9XQH65eQKA9p2xtk+zxvnTeQBG7rdAXSkUG97DmuI/Xhji9uaUzaWxRj6rf9YC0v8KKHkxav7tnLX82Sz5Fg==
 
 locate-path@^6.0.0:
   version "6.0.0"
