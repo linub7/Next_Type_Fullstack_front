@@ -9,11 +9,14 @@ import Youtube from '@tiptap/extension-youtube';
 import Toolbar from './toolbar/Toolbar';
 import HorizontalSeparator from './toolbar/separator/HorizontalSeparator';
 import EditLink from './toolbar/link/EditLink';
+import GalleryModal from './toolbar/modal/GalleryModal';
 
 interface Props {}
 
 const Editor: FC<Props> = ({}) => {
   const [selectionRange, setSelectionRange] = useState<Range>();
+  const [visibleImageGallery, setVisibleImageGallery] = useState(false);
+
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -62,12 +65,24 @@ const Editor: FC<Props> = ({}) => {
   }, [editor, selectionRange]);
 
   return (
-    <div className="p-3 dark:bg-primary-dark bg-primary transition">
-      <Toolbar editor={editor} />
-      <HorizontalSeparator />
-      {editor ? <EditLink editor={editor} /> : null}
-      <EditorContent editor={editor} />
-    </div>
+    <>
+      <div className="p-3 dark:bg-primary-dark bg-primary transition">
+        <Toolbar
+          editor={editor}
+          setVisibleImageGallery={setVisibleImageGallery}
+        />
+        <HorizontalSeparator />
+        {editor ? <EditLink editor={editor} /> : null}
+        <EditorContent editor={editor} />
+      </div>
+
+      {visibleImageGallery && (
+        <GalleryModal
+          visible={visibleImageGallery}
+          setVisibleImageGallery={setVisibleImageGallery}
+        />
+      )}
+    </>
   );
 };
 

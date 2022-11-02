@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { Dispatch, FC, SetStateAction } from 'react';
 import { Editor } from '@tiptap/react';
 import {
   AiOutlineBold,
@@ -23,9 +23,10 @@ import EmbedYoutube from './youtube/EmbedYoutube';
 
 interface Props {
   editor: Editor | null;
+  setVisibleImageGallery: Dispatch<SetStateAction<boolean>>;
 }
 
-const Toolbar: FC<Props> = ({ editor }) => {
+const Toolbar: FC<Props> = ({ editor, setVisibleImageGallery }) => {
   if (!editor) return null;
 
   const paragraphOptions = [
@@ -152,7 +153,7 @@ const Toolbar: FC<Props> = ({ editor }) => {
       <div className="flex items-center space-x-3">
         <EmbedYoutube onSubmit={handleEmbedYoutubeLink} />
 
-        <Button>
+        <Button onClick={() => setVisibleImageGallery(true)}>
           <IoImageOutline />
         </Button>
       </div>
